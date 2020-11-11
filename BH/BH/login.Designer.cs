@@ -32,11 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txt_pass = new System.Windows.Forms.TextBox();
             this.txt_user = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_pass = new System.Windows.Forms.TextBox();
             button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,16 +82,6 @@
             this.panel3.Size = new System.Drawing.Size(215, 1);
             this.panel3.TabIndex = 1;
             // 
-            // txt_pass
-            // 
-            this.txt_pass.BackColor = System.Drawing.Color.Silver;
-            this.txt_pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_pass.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pass.Location = new System.Drawing.Point(36, 313);
-            this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(215, 28);
-            this.txt_pass.TabIndex = 0;
-            // 
             // txt_user
             // 
             this.txt_user.BackColor = System.Drawing.Color.Silver;
@@ -135,17 +125,26 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt_pass
+            // 
+            this.txt_pass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pass.Location = new System.Drawing.Point(36, 313);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.PasswordChar = '*';
+            this.txt_pass.Size = new System.Drawing.Size(208, 26);
+            this.txt_pass.TabIndex = 19;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(284, 411);
+            this.Controls.Add(this.txt_pass);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_user);
-            this.Controls.Add(this.txt_pass);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -165,11 +164,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txt_pass;
         private System.Windows.Forms.TextBox txt_user;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox txt_pass;
     }
 }
 

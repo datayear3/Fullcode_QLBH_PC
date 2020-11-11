@@ -10,15 +10,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
-
 namespace BH
 {
     public partial class login : Form
     {
-        public SqlConnection con;
-        public SqlCommand com;
-        public DataSet ds;
-        public SqlDataAdapter da;
+        Lopdungchung lopchung = new Lopdungchung();
         public login()
         {
             InitializeComponent();
@@ -33,34 +29,33 @@ namespace BH
         {
             Application.Exit();
         }
-
+        int dem = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            string user = txt_user.Text.ToString();
-            string pass = txt_pass.Text.ToString();
+            string user = txt_user.Text;
+            string pass = txt_pass.Text;
             try
             {
-                con = new SqlConnection("Data Source=MC;Initial Catalog=QuanLyCuaHangBanLe;Integrated Security=True");
-                con.Open();
-                ds = new DataSet();
-                string sql = "select * from NHAN_VIEN where MaNV='" + user + "' and MatKhau='" + pass + "'";
-                da = new SqlDataAdapter(sql, con);
-                da.Fill(ds,"NHAN_VIEN");
-                DataView dv = new DataView(ds.Tables["NHAN_VIEN"]);
-                if (ds.Tables["NHAN_VIEN"].Rows.Count > 0)
+
+                string sql = "select count(*) from NHAN_VIEN where MaNV = '" + user.ToUpper() + "'and MatKhau = '" + pass.ToUpper() + "'";
+                int kq = (int)lopchung.ExcuteScalar(sql);
+                if (kq >= 1)
                 {
-                    //MessageBox.Show("Dang nhap thanh cong");
-                    main m = new main();
+                    Frm_Main m = new Frm_Main();
                     this.Hide();
                     m.ShowDialog();
                     this.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Dang nhap that bai xin vui long thu lai");
+                    dem++;
+                    MessageBox.Show("Đăng nhập thất bại,mời bạn nhập lại");
+                    if (dem == 3)
+                    {
+                        MessageBox.Show("Bạn đã nhập sai 3 lần");
+                        Application.Exit();
+                    }
                 }
-                //Dangnhap dn = new Dangnhap();
-                con.Close();
             }
             catch (Exception ie)
             {

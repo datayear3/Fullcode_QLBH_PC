@@ -1,6 +1,6 @@
 ﻿namespace BH
 {
-    partial class main
+    partial class Frm_Main
     {
         /// <summary>
         /// Required designer variable.

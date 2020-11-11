@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BH
 {
-    public partial class main : Form
+    public partial class Frm_Main : Form
     {
-        public main()
+        public Frm_Main()
         {
             InitializeComponent();
         }
